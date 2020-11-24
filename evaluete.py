@@ -121,10 +121,11 @@ def evalute(original, distorted):
     print("psnr: ", psnr)
     print('CNR: ', cnr_data)
 
-    print("PSNR(CV2): ", cv2.PSNR(original, distorted))
-
 if __name__ == "__main__":
-    original = os.getcwd() + '/data/MILLENIUMchocolate-reference-uint16_340x340x40.jpg'
-    distorted = os.getcwd() + './data/MILLENIUMchocolate-uint16_170x170x20-MILLENIUMchocolate-200image-7x7-float32_20.png'
+    ori = "MILLENIUMchocolate-reference-uint16_340x340x40"
+    dis = "MILLENIUMchocolate-uint16_170x170x20-MILLENIUMchocolate-200image-7x7-float32_20"
+
+    original = os.getcwd() + '/data/' + ori + '.jpg'
+    distorted = os.getcwd() + './data/' + dis + '.png'
 
     evalute(original, distorted)

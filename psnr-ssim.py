@@ -62,7 +62,7 @@ def evalute(original, distorted):
     print("PSNR(CV2): ", cv2.PSNR(original, distorted))
 
 if __name__ == "__main__":
-    original = os.getcwd() + '/data/cube-tetra-original_416x421_396x400-1_772x780.png'
-    distorted = os.getcwd() + './data/cube-tetra-2out_772x780.png'
+    original = os.getcwd() + '/data/cube-tetra-reference-uint16_64.png'
+    distorted = os.getcwd() + './data/cube-tetra-uint16_200x200x50-cube-tetra-200image-13x13-float32_64.png'
 
     evalute(original, distorted)
