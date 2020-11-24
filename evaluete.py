@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import math
 import os
-from skimage.measure import compare_ssim, compare_psnr
+from skimage.metrics import peak_signal_noise_ratio, structural_similarity
 import time
 from PIL import Image
 import numpy as np
@@ -111,11 +111,11 @@ def evalute(original, distorted):
         sum += pow ( (pixel_value_Ori[i]-pixel_value_Dis[i]), 2 )
     MSE = sum / N
     PSNR = 10 * math.log(255*255/MSE,10)
-    print('PSNR: ',PSNR)
-    print('MSE: ', MSE)
+    # print('PSNR: ',PSNR)
+    # print('MSE: ', MSE)
 
-    ssim = measurement(compare_ssim, img1=original, img2=distorted)
-    psnr = measurement(compare_psnr, img1=original, img2=distorted)
+    ssim = measurement(structural_similarity, img1=original, img2=distorted)
+    psnr = measurement(peak_signal_noise_ratio, img1=original, img2=distorted)
 
     print("ssim: ", ssim )
     print("psnr: ", psnr)
